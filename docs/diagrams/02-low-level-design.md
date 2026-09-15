@@ -4,40 +4,36 @@
 
 ```mermaid
 graph TB
-    subgraph "Frontend Components"
-        direction LR
+    subgraph Frontend["Frontend Components"]
         UI_LANDING[Landing Page]
         UI_AUTH[Authentication Forms]
         UI_COMPANY[Company Dashboard]
         UI_AUDITOR[Auditor Portal]
         UI_GOVT[Government Monitor]
-        
-        subgraph "Shared Components"
-            NAV[Navigation Bar]
-            SIDEBAR[Sidebar Menu]
-            CHARTS[Chart Components]
-            TABLES[Data Tables]
-            FORMS[Form Components]
-        end
+        NAV[Navigation Bar]
+        SIDEBAR[Sidebar Menu]
+        CHARTS[Chart Components]
+        TABLES[Data Tables]
+        FORMS[Form Components]
     end
     
-    subgraph "Backend Controllers"
-        AUTH_CTRL[AuthController<br/>/api/auth/*]
-        COMPANY_CTRL[CompanyController<br/>/api/companies/*]
-        AUDITOR_CTRL[AuditorController<br/>/api/auditors/*]
-        GOVT_CTRL[GovernmentController<br/>/api/government/*]
-        CARBON_CTRL[CarbonController<br/>/api/carbon/*]
+    subgraph Controllers["Backend Controllers"]
+        AUTH_CTRL[AuthController]
+        COMPANY_CTRL[CompanyController]
+        AUDITOR_CTRL[AuditorController]
+        GOVT_CTRL[GovernmentController]
+        CARBON_CTRL[CarbonController]
     end
     
-    subgraph "Service Layer"
-        AUTH_SVC[AuthService<br/>- login()<br/>- signup()<br/>- validateToken()]
-        COMPANY_SVC[CompanyService<br/>- getAll()<br/>- getById()<br/>- create()]
-        AUDITOR_SVC[AuditorService<br/>- getAll()<br/>- getById()<br/>- create()]
-        GOVT_SVC[GovernmentService<br/>- getAll()<br/>- getById()<br/>- create()]
-        CARBON_SVC[CarbonService<br/>- getAll()<br/>- getById()<br/>- getByCompany()<br/>- create()]
+    subgraph Services["Service Layer"]
+        AUTH_SVC[AuthService]
+        COMPANY_SVC[CompanyService]
+        AUDITOR_SVC[AuditorService]
+        GOVT_SVC[GovernmentService]
+        CARBON_SVC[CarbonService]
     end
     
-    subgraph "Data Transfer Objects"
+    subgraph DTOs["Data Transfer Objects"]
         LOGIN_REQ[LoginRequest]
         SIGNUP_REQ[SignupRequest]
         AUTH_RESP[AuthResponse]
@@ -46,25 +42,25 @@ graph TB
         GOVT_DTO[GovernmentDto]
     end
     
-    subgraph "Models/Entities"
-        COMPANY[Company<br/>- id<br/>- name<br/>- industry<br/>- emissionTarget]
-        AUDITOR[Auditor<br/>- id<br/>- name<br/>- agencyName<br/>- certificationId]
-        GOVT[GovernmentBody<br/>- id<br/>- name<br/>- jurisdiction<br/>- role]
-        CARBON[CarbonEntry<br/>- id<br/>- companyId<br/>- emissionValue<br/>- creditBalance<br/>- reportDate]
+    subgraph Models["Models/Entities"]
+        COMPANY[Company]
+        AUDITOR[Auditor]
+        GOVT[GovernmentBody]
+        CARBON[CarbonEntry]
     end
     
-    subgraph "Repositories"
+    subgraph Repos["Repositories"]
         COMPANY_REPO[CompanyRepository]
         AUDITOR_REPO[AuditorRepository]
         GOVT_REPO[GovernmentRepository]
         CARBON_REPO[CarbonRepository]
     end
     
-    subgraph "Utility Components"
-        RESPONSE[ResponseWrapper<br/>- success()<br/>- error()]
-        EXCEPTION[GlobalExceptionHandler<br/>- handleNotFound()<br/>- handleValidation()<br/>- handleGeneric()]
-        SECURITY[SecurityConfig<br/>- filterChain()]
-        CORS_CONFIG[CorsConfig<br/>- addCorsMappings()]
+    subgraph Utils["Utility Components"]
+        RESPONSE[ResponseWrapper]
+        EXCEPTION[GlobalExceptionHandler]
+        SECURITY[SecurityConfig]
+        CORS_CONFIG[CorsConfig]
     end
     
     UI_COMPANY --> COMPANY_CTRL
