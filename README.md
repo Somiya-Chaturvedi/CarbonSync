@@ -102,11 +102,33 @@ CarbonSync/
 
 ---
 
-## 🧠 System Design (Concept)
+## 📐 Architecture & Design Documentation
 
-- Role-based system (Company / Auditor / Authority)
-- Centralized database for storing emission data
-- REST APIs for communication between frontend and backend
+Comprehensive architectural diagrams are available in the [`docs/diagrams/`](docs/diagrams/) directory:
+
+| Diagram | Description | Link |
+|---------|-------------|------|
+| **High-Level Design (HLD)** | System architecture overview, tech stack, layers | [View](docs/diagrams/01-high-level-design.md) |
+| **Low-Level Design (LLD)** | Classes, methods, design patterns, API format | [View](docs/diagrams/02-low-level-design.md) |
+| **Entity-Relationship (ERD)** | Database schema, tables, relationships, constraints | [View](docs/diagrams/03-entity-relationship-diagram.md) |
+| **Data Flow Diagram (DFD)** | Data movement, processes, transformations | [View](docs/diagrams/04-data-flow-diagram.md) |
+| **Sequence Diagrams** | User flows, authentication, verification, monitoring | [View](docs/diagrams/05-sequence-diagrams.md) |
+| **Component Diagram** | Components, dependencies, integrations | [View](docs/diagrams/06-component-diagram.md) |
+| **Deployment Diagram** | Infrastructure, CI/CD, monitoring, scaling | [View](docs/diagrams/07-deployment-diagram.md) |
+| **Use Case Diagram** | User roles, features, requirements | [View](docs/diagrams/08-use-case-diagram.md) |
+
+> 📖 **Quick Start**: New to the project? Start with [HLD](docs/diagrams/01-high-level-design.md) → [Use Cases](docs/diagrams/08-use-case-diagram.md) → [LLD](docs/diagrams/02-low-level-design.md)
+
+---
+
+## 🧠 System Design Highlights
+
+- **Architecture**: 3-tier (Frontend, Backend, Database)
+- **Role-based Access**: Company / Auditor / Government
+- **Data Model**: Normalized relational database (PostgreSQL)
+- **API Design**: RESTful with standard response wrapper
+- **Security**: JWT authentication, HTTPS, input validation
+- **Scalability**: Stateless backend, horizontal scaling ready
 
 ---
 
